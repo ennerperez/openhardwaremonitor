@@ -13,18 +13,13 @@ using System.Management.Instrumentation;
 using OpenHardwareMonitor.Hardware;
 
 namespace OpenHardwareMonitor.WMI {
-  [ManagementEntity]
-  [ManagementQualifier("Description", Value = "Provide data about system hardware.")]
+  [InstrumentationClass(InstrumentationType.Instance)]
   public class Hardware : IWmiObject {
     #region WMI Exposed
-
-    [ManagementProbe]   
+    
     public string HardwareType { get; private set; }
-    [ManagementKey]
     public string Identifier { get; private set; }
-    [ManagementProbe]
     public string Name { get; private set; }
-    [ManagementProbe]
     public string Parent { get; private set; }
 
     #endregion
