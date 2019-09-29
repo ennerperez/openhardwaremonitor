@@ -1,4 +1,4 @@
-﻿/*
+/*
  
   This Source Code Form is subject to the terms of the Mozilla Public
   License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -248,9 +248,7 @@ namespace OpenHardwareMonitor.Hardware.LPC {
         ushort vendorID = port.ReadWord(FINTEK_VENDOR_ID_REGISTER);
 
         // disable the hardware monitor i/o space lock on NCT679*D chips
-        if (address == verify && (chip == Chip.NCT6791D || chip == Chip.NCT6793D || chip == Chip.NCT6795D)) {
-        // disable the hardware monitor i/o space lock on NCT6791D chips
-        if (address == verify && (chip == Chip.NCT6791D || chip == Chip.NCT6796D)) {
+        if (address == verify && (chip == Chip.NCT6791D || chip == Chip.NCT6793D || chip == Chip.NCT6795D || chip == Chip.NCT6796D)) {
           port.NuvotonDisableIOSpaceLock();
         }
 
