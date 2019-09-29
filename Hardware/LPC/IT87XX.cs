@@ -173,8 +173,7 @@ namespace OpenHardwareMonitor.Hardware.LPC {
       // ADC, all others 16mV
       if (chip == Chip.IT8620E || chip == Chip.IT8628E || chip == Chip.IT8721F 
         || chip == Chip.IT8728F || chip == Chip.IT8771E || chip == Chip.IT8772E
-        || chip == Chip.IT8686E ) 
-        || chip == Chip.IT8688E) 
+        || chip == Chip.IT8686E || chip == Chip.IT8688E) 
       {
         voltageGain = 0.012f;
       } else {
