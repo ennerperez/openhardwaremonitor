@@ -274,6 +274,7 @@ namespace OpenHardwareMonitor.Hardware.LPC {
         case Chip.NCT6795D:
         case Chip.NCT6793D:
         case Chip.NCT6791D:
+        case Chip.NCT6796D:
           if (chip == Chip.NCT6779D) {
             fans = new float?[5];
             controls = new float?[5];
@@ -417,6 +418,7 @@ namespace OpenHardwareMonitor.Hardware.LPC {
 
     private void DisableIOSpaceLock() {
       if (chip != Chip.NCT6791D && chip != Chip.NCT6793D && chip != Chip.NCT6795D)
+      if (chip != Chip.NCT6791D && chip != Chip.NCT6796D)
         return;
 
       // the lock is disabled already if the vendor ID can be read
