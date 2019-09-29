@@ -81,6 +81,7 @@ namespace OpenHardwareMonitor.GUI
             this.minTrayMenuItem = new System.Windows.Forms.MenuItem();
             this.minCloseMenuItem = new System.Windows.Forms.MenuItem();
             this.startupMenuItem = new System.Windows.Forms.MenuItem();
+            this.hideTaskbarIconMenuItem = new System.Windows.Forms.MenuItem();
             this.separatorMenuItem = new System.Windows.Forms.MenuItem();
             this.temperatureUnitsMenuItem = new System.Windows.Forms.MenuItem();
             this.celsiusMenuItem = new System.Windows.Forms.MenuItem();
@@ -116,7 +117,6 @@ namespace OpenHardwareMonitor.GUI
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.splitContainer = new OpenHardwareMonitor.GUI.SplitContainerAdv();
             this.treeView = new Aga.Controls.Tree.TreeViewAdv();
-            this.hideTaskbarIconMenuItem = new System.Windows.Forms.MenuItem();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
@@ -409,14 +409,20 @@ namespace OpenHardwareMonitor.GUI
             this.startupMenuItem.Index = 3;
             this.startupMenuItem.Text = "Run On Windows Startup";
             // 
+            // hideTaskbarIconMenuItem
+            // 
+            this.hideTaskbarIconMenuItem.Index = 4;
+            this.hideTaskbarIconMenuItem.Text = "Hide Taskbar Icon";
+            this.hideTaskbarIconMenuItem.Click += new System.EventHandler(this.hideTaskbarIconMenuItem_Clicked);
+            // 
             // separatorMenuItem
             // 
-            this.separatorMenuItem.Index = 4;
+            this.separatorMenuItem.Index = 5;
             this.separatorMenuItem.Text = "-";
             // 
             // temperatureUnitsMenuItem
             // 
-            this.temperatureUnitsMenuItem.Index = 5;
+            this.temperatureUnitsMenuItem.Index = 6;
             this.temperatureUnitsMenuItem.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.celsiusMenuItem,
             this.fahrenheitMenuItem});
@@ -465,18 +471,18 @@ namespace OpenHardwareMonitor.GUI
             // 
             // logSeparatorMenuItem
             // 
-            this.logSeparatorMenuItem.Index = 7;
+            this.logSeparatorMenuItem.Index = 8;
             this.logSeparatorMenuItem.Text = "-";
             // 
             // logSensorsMenuItem
             // 
-            this.logSensorsMenuItem.Index = 8;
+            this.logSensorsMenuItem.Index = 9;
             this.logSensorsMenuItem.Shortcut = System.Windows.Forms.Shortcut.CtrlL;
             this.logSensorsMenuItem.Text = "Log Sensors";
             // 
             // loggingIntervalMenuItem
             // 
-            this.loggingIntervalMenuItem.Index = 9;
+            this.loggingIntervalMenuItem.Index = 10;
             this.loggingIntervalMenuItem.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.log1sMenuItem,
             this.log2sMenuItem,
@@ -573,12 +579,12 @@ namespace OpenHardwareMonitor.GUI
             // 
             // webMenuItemSeparator
             // 
-            this.webMenuItemSeparator.Index = 10;
+            this.webMenuItemSeparator.Index = 11;
             this.webMenuItemSeparator.Text = "-";
             // 
             // webMenuItem
             // 
-            this.webMenuItem.Index = 11;
+            this.webMenuItem.Index = 12;
             this.webMenuItem.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.runWebServerMenuItem,
             this.serverPortMenuItem});
@@ -676,12 +682,6 @@ namespace OpenHardwareMonitor.GUI
             this.treeView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView_MouseDown);
             this.treeView.MouseMove += new System.Windows.Forms.MouseEventHandler(this.treeView_MouseMove);
             this.treeView.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treeView_MouseUp);
-            //  
-            // hideTaskbarIconMenuItem 
-            //  
-            this.hideTaskbarIconMenuItem.Index = 4;
-            this.hideTaskbarIconMenuItem.Text = "Hide Taskbar Icon";
-            this.hideTaskbarIconMenuItem.Click += new System.EventHandler(this.hideTaskbarIconMenuItem_Clicked);
             // 
             // MainForm
             // 
@@ -696,6 +696,7 @@ namespace OpenHardwareMonitor.GUI
             this.Text = "Open Hardware Monitor";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.ResizeEnd += new System.EventHandler(this.MainForm_MoveOrResize);
             this.Move += new System.EventHandler(this.MainForm_MoveOrResize);
             this.splitContainer.Panel1.ResumeLayout(false);
